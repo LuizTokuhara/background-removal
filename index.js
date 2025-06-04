@@ -17,6 +17,7 @@ const sampleThree = document.getElementById('sample-three');
 const sampleFour = document.getElementById('sample-four');
 
 try {
+  // Pipeline device can be 'wasm' (cpu) or 'webgpu'
   model = await pipeline('background-removal', modelId, { device: 'wasm' });
   loadScreen.remove();
   console.log(`Model loaded successfully`);
@@ -86,6 +87,7 @@ function reset() {
   outputImage.innerHTML = '';
   title.innerText = 'Background Removal';
   resetButton.classList.add('hide');
+  dropArea.classList.remove('drop-area-enter');
 }
 
 function isValidFileType(file) {
@@ -128,19 +130,23 @@ sampleFour.addEventListener('click', async () => {
   await prepareSampleImage('family.jpg');
 });
 
-dropArea.addEventListener('dragover', preventDefaults);
-dropArea.addEventListener('dragenter', preventDefaults);
-dropArea.addEventListener('dragleave', preventDefaults);
-dropArea.addEventListener('drop', handleDrop);
 
+dropArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropArea.classList.add('drop-area-enter');
+});
+dropArea.addEventListener('dragleave', (e) => {
+  e.preventDefault();
+  dropArea.classList.remove('drop-area-enter');
+});
+dropArea.addEventListener('dragenter', preventDefaults);
+dropArea.addEventListener('drop', handleDrop);
 dropArea.addEventListener('dragover', () => {
   dropArea.classList.add('drag-over');
 });
-
 dropArea.addEventListener('dragleave', () => {
   dropArea.classList.remove('drag-over');
 });
-
 dropArea.addEventListener('click', () => {
   fileInput.click();
 });
