@@ -9,7 +9,7 @@ const outputImage = document.getElementById('output-image');
 const previewContainer = document.getElementById('preview-container');
 const resetButton = document.getElementById('reset-button');
 const title = document.getElementById('title');
-const loadScreen = document.getElementById('loader-container')
+const loadScreen = document.getElementById('loader-container');
 
 const sampleOne = document.getElementById('sample-one');
 const sampleTwo = document.getElementById('sample-two');
