@@ -32,6 +32,13 @@ body {
   border-radius: 10px;
 }
 
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 400px;
+}
+
 .reset-button {
   margin-top: 40px;
   padding: 10px 20px;
@@ -46,6 +53,23 @@ body {
 
 .reset-button:hover {
   background-color: #e08f04;
+  color: white;
+}
+
+.download-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #2ec429;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.download-button:hover {
+  background-color: #0b630a;
   color: white;
 }
 
@@ -168,6 +192,10 @@ h1 {
   }
 
   .sample-container {
+    width: 100%;
+  }
+
+  .buttons-container {
     width: 100%;
   }
 }

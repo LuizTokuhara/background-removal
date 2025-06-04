@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTM7EKRYPQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KTM7EKRYPQ');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Background Removal - TransformersJs</title>
@@ -30,7 +39,10 @@
       <img id="sample-three" src="./images/woman.webp" alt="Woman sample image" class="sample-image">
       <img id="sample-four" src="./images/family.jpg" alt="Family sample image" class="sample-image">
     </section>
-    <button id="reset-button" class="hide reset-button">Clear preview</button>
+    <div id="buttons-container" class="buttons-container hide">
+      <button id="reset-button" class="reset-button">Clear preview</button>
+      <button id="download-button" class="download-button">Download image</button>
+    </div>
   </main>
   <section class="github-link" id="github-link">
     <a href="https://github.com/LuizTokuhara/background-removal"

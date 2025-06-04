@@ -7,7 +7,9 @@ const dropArea = document.getElementById('drop-area');
 const fileInput = document.getElementById('file-input');
 const outputImage = document.getElementById('output-image');
 const previewContainer = document.getElementById('preview-container');
+const buttonsContainer = document.getElementById('buttons-container');
 const resetButton = document.getElementById('reset-button');
+const downloadButton = document.getElementById('download-button');
 const title = document.getElementById('title');
 const loadScreen = document.getElementById('loader-container');
 
@@ -43,8 +45,22 @@ async function showImagePreview(currentImage) {
   const img = tmpCanvas.toDataURL('image/png');
   outputImage.innerHTML = `<img src="${img}" alt="Processed Image">`;
   title.innerText = 'Image Preview';
-  resetButton.classList.remove('hide');
+  buttonsContainer.classList.remove('hide');
   previewContainer.classList.add('hide');
+}
+
+function analytics(
+  eventName,
+  eventType,
+  eventCategory,
+  eventLabel,
+  value = 1
+) {
+  window.gtag(eventName, eventType, {
+    event_category: eventCategory,
+    event_label: eventLabel,
+    value: value
+  });
 }
 
 function handleFiles(file) {
@@ -71,6 +87,7 @@ function handleFiles(file) {
 
 function handleDrop(e) {
   e.preventDefault();
+  analytics('event', 'upload_image', 'Upload', 'Image uploaded');
   image = e.dataTransfer.files[0];
   if (image) {
     fileInput.file = image;
@@ -85,8 +102,8 @@ function reset() {
   previewContainer.classList.remove('hide');
   fileInput.value = '';
   outputImage.innerHTML = '';
-  title.innerText = 'Background Removal';
-  resetButton.classList.add('hide');
+  title.innerText = 'Image Background Removal';
+  buttonsContainer.classList.add('hide');
   dropArea.classList.remove('drop-area-enter');
 }
 
@@ -111,6 +128,7 @@ resetButton.addEventListener('click', reset);
 
 async function prepareSampleImage(filename) {
   reset();
+  analytics('event', 'sample_image', 'Sample Image', 'Sample image selected', filename);
   const response = await fetch(`./images/${filename}`);
   const blob = await response.blob();
   const file = new File([blob], `${filename}`, { type: blob.type });
@@ -149,4 +167,19 @@ dropArea.addEventListener('dragleave', () => {
 });
 dropArea.addEventListener('click', () => {
   fileInput.click();
+});
+
+downloadButton.addEventListener('click', () => {
+  const img = outputImage.querySelector('img');
+  if (img) {
+    analytics('event', 'download_image', 'Download', 'Download button clicked', new Date().toISOString());
+    const link = document.createElement('a');
+    link.href = img.src;
+    link.download = 'image.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else {
+    alert('No image to download. Please process an image first.');
+  }
 });
