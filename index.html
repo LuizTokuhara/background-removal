@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Removal - TransformersJs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader-container" class="loader-container">
+    <i class="bi bi-cloud-arrow-down-fill"></i>
+    <p>Loading model...</p>
+  </div>
+  <main class="main-container">
+    <h1 id="title">Image Background Removal</h1>
+    <div id="drop-area" class="drop-area">
+      <i class="bi bi-box-arrow-in-down drop-icon"></i>
+      <p>Drag the image here</p>
+      <p>or click to upload</p>
+    </div>
+    <input type="file" id="file-input" hidden>
+    <div id="preview-container" class="preview-container"></div>
+    <div id="output-image" class="preview-container output-container"></div>
+
+    <p class="sample-image-title">Sample images</p>
+    <section class="sample-container">
+      <img id="sample-one" src="./images/dog.jpg" alt="Dog sample image" class="sample-image">
+      <img id="sample-two" src="./images/parrot.webp" alt="Parrot sample image" class="sample-image">
+      <img id="sample-three" src="./images/woman.webp" alt="Woman sample image" class="sample-image">
+      <img id="sample-four" src="./images/family.jpg" alt="Family sample image" class="sample-image">
+    </section>
+    <button id="reset-button" class="hide reset-button">Clear preview</button>
+  </main>
+  <section class="github-link">
+    <i class="bi bi-github github-button"></i>
+  </section>
+  
+  <script src="index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  height: auto;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #272c37;
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.output-container {
+  margin-bottom: 24px;
+}
+
+.preview-container > img {
+  max-height: 500px;
+  border-radius: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+}
+
+.reset-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #ffb753;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.reset-button:hover {
+  background-color: #e08f04;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+.drop-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+}
+
+.drop-area > .drop-icon {
+  font-size: 2.5em;
+  margin-bottom: 24px;
+}
+
+.drop-area p {
+  margin: 0 0 8px 0;
+}
+
+.sample-image-title {
+  color: white;
+  font-size: 0.75em;
+}
+
+.sample-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 400px;
+}
+
+.sample-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.sample-image:hover {
+  opacity: 0.5;
+}
+
+.loader-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, 0.7);
+  z-index: 1000;
+}
+
+.loader-container > p {
+  color: white;
+  font-size: 1em;
+}
+
+.loader-container > i {
+  font-size: 3em;
+  color: white;
+}
+
+.github-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0px;
+  height: 0px;
+  border-bottom: 100px solid white;
+  border-left: 100px solid transparent;
+  cursor: pointer;
+}
+
+.github-button {
+  position: absolute;
+  z-index: 9999;
+  top: 50px;
+  right: 15px;
+  font-size: 2em;
+  color: #272c37;
+}
+
+@media only screen and (min-width: 400px) {
+  .main-container {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .drop-area {
+    width: 100%;
+  }
+
+  .preview-container > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sample-container {
+    width: 100%;
+  }
+}
+
+.hide {
+  display: none;
+  height: 0px;
+}
