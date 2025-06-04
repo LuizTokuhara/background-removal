@@ -12,6 +12,7 @@ const resetButton = document.getElementById('reset-button');
 const downloadButton = document.getElementById('download-button');
 const title = document.getElementById('title');
 const loadScreen = document.getElementById('loader-container');
+const githubLinkButton = document.getElementById('github-link-button');
 
 const sampleOne = document.getElementById('sample-one');
 const sampleTwo = document.getElementById('sample-two');
@@ -182,4 +183,8 @@ downloadButton.addEventListener('click', () => {
   } else {
     alert('No image to download. Please process an image first.');
   }
+});
+
+githubLinkButton.addEventListener('click', () => {
+  analytics('event', 'github_link', 'Link Click', 'GitHub link clicked');
 });
