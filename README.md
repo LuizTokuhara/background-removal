@@ -1,5 +1,5 @@
 # Background Removal Web App
-Test it [online](https://background-removal-blue.vercel.app/)
+Give it a [try](https://background-removal-blue.vercel.app/)
 
 ## Overview
 This project is a browser-based background removal tool powered by AI, built using **HTML**, **CSS**, and **JavaScript**. It leverages the **Transformers.js** library to run a pre-trained machine learning model directly in the browser. Once the model is loaded, the application can function **offline**, making it lightweight and accessible without requiring constant internet connectivity.
